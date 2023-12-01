@@ -1,0 +1,69 @@
+
+
+#deuxPremierTitre { 
+    display: block;
+}
+#titreCasio{ 
+   
+    margin-left: 3%;
+}
+
+#sousTitre1{ 
+    margin-left: 60%;
+}
+#sousTitre2{ 
+   
+    margin-left: 20%;
+    text-orientation: sideways-right;
+
+}
+#sousTitre3{ 
+   
+    margin-left: 70%;
+    text-orientation: sideways-right;
+}
+#resultat{ 
+    margin-left: 50%;
+}
+#inputValue{ 
+   
+    margin: 2%;
+}
+
+#input{ 
+   
+    box-shadow: 5px 5px 10px ;
+}
+
+.convertInputDiv{
+    border: 1px solid #ccc;
+    padding: 5px;
+    height: 30px;
+    min-height: 50px;
+    cursor: not-allowed;
+ }
+
+.text-white{ 
+   
+   display: inline-block;
+
+   margin-top: 1%;
+   margin-right: 4%;
+   margin-left:4%;
+   margin-bottom:1%
+}
+#lastlignSymbole{ 
+   
+    display: inline-block;
+    color: white;
+    margin-top: 1%;
+    margin-right: 3.5%;
+    margin-left:3.5%;
+    margin-bottom:1%
+ }
+ #affichageResultat{  
+    margin-left: 50%;
+    border: none;
+    border-radius: 2%;
+
+ }

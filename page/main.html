@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../asset/css/main.css">
+    <link rel="stylesheet" href="../asset/js/bootstrap.min.js">
+    <script src="../asset/js/main.js" defer></script>
+    <title>Calculatrice</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row tex-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-5 bg-secondary shadow rounded-5 mt-5">
+                <div  id="deuxPremierTitre"> 
+                    <div  id="titreCasio" class="h1"> CASIO</div>
+                    <div id="sousTitre1" class="h3">fx-82ES PLUS</div>
+                </div>
+                <div id="sousTitre2" class="h2">NATURAL-V.P.A.M</div>
+                <div id="sousTitre3"  class="h5">2nd edition</div>
+            
+                <div id="inputValue"  class="form-group">
+                    <div class="convertInputDiv rounded-4 bg-light" id="monInput" oninput="handleChange()"  contenteditable="false" >
+                        <!--<input type="text" id="affichageResultat" readonly>-->
+                    </div>
+                     <input class="rounded-4 bg-light tex-center" type="text" id="affichageResultat" readonly>
+                    <!--<input type="text" id="monInput" class="form-control  bg-light custom-box-shadow rounded-5" disabled>-->
+                    
+                </div>
+
+                <div class="numberLigns">
+                    <div class="symbolign1">
+
+                        <button id="lastlignSymbole" class=" shadow p-2 bg-secondary rounded">SHIFT</button>
+                        <button id="lastlignSymbole" class=" shadow p-2 bg-secondary rounded">ALPHA</button>
+                        <button id="lastlignSymbole" class="shadow p-2 bg-secondary rounded"></button>
+                        <button id="lastlignSymbole" class=" shadow p-1 bg-secondary rounded">MODE</button>
+                        <button onclick="activerInput()" id="onButton" class="shadow p-2 bg-secondary rounded ">ON</button>
+                        <button onclick="desactiverInput()" id="onButton" class="shadow p-2 bg-secondary text-danger rounded">OFF</button>
+
+                    </div>
+
+                    <div class="symbolign2">
+
+                        <button id="shift" class="text-white shadow p-3 bg-secondary rounded">Abs</button>
+                        <button id="alpha" class="text-white shadow p-3 bg-secondary rounded">x3</button>
+                        <button class="text-white shadow p-3 bg-secondary rounded"></button>
+                        <button class="text-white shadow p-3 bg-secondary rounded">x-1</button>
+                        <button class="text-white shadow p-3 bg-secondary rounded">log</button>
+
+                    </div>
+
+                    <div class="symbolign3">
+
+                        <button id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">-</button>
+                        <button onclick="ajouterCaractere('√')" id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">√</button>
+                        <button onclick="ajouterCaractere('^')"  id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">^</button>
+                        <button onclick="ajouterCaractere('')" id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">x-1</button>
+                        <button onclick="ajouterFonctionTrigo('ln(')" id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">ln</button>
+                        <button onclick="ajouterFonctionTrigo('e(')" id="lastlignSymbole" class=" shadow p-2 bg-secondary rounded">exp</button>
+
+                    </div>
+
+
+                    <div class="symbolign4">
+
+                        <button id="lastlignSymbole" class="shadow p-2  bg-secondary rounded">(-)</button>
+                        <button id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">-,,,</button>
+                        <button id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">hyp</button>
+                        <button onclick="ajouterFonctionTrigo('sin(')" id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">sin</button>
+                        <button onclick="ajouterFonctionTrigo('cos(')" id="lastlignSymbole" class="shadow p-2 bg-secondary rounded">cos</button>
+                        <button onclick="ajouterFonctionTrigo('tan(')" id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">tan</button>
+
+                    </div>
+
+                    <div class="symbolign4">
+
+                        <button id="lastlignSymbole" class=" shadow p-2  bg-secondary  rounded">RCL</button>
+                        <button id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">ENG</button>
+                        <button onclick="paranthese('(')" id="lastlignSymbole"  class="shadow p-2  bg-secondary rounded">(</button>
+                        <button onclick="paranthese(')')" id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">)</button>
+                        <button id="lastlignSymbole" class=" shadow p-2  bg-secondary rounded">S<=>D </button>
+                        <button id="lastlignSymbole" class=" shadow p-1  bg-secondary rounded">M+</button>
+
+                    </div>
+                    
+                    <div id="numberLign1">
+                        <button onclick="ajouterChiffre(7)" class=" text-white shadow p-3  bg-secondary rounded">7</button>
+                        <button onclick="ajouterChiffre(8)" class="text-white shadow p-3 bg-secondary rounded">8</button>
+                        <button onclick="ajouterChiffre(9)" class=" text-white shadow p-3 bg-secondary rounded">9</button>
+                        <button onclick="effacerDernierCaractere()"  class=" text-white  shadow p-3  bg-secondary  rounded">DEL</button>
+                        <button onclick="effacerExpression()" class=" text-white shadow p-3 bg-secondary rounded">AC</button>
+                    </div>
+                    <div id="numberLign1" >
+                        <button  onclick="ajouterChiffre(4)" class=" text-white shadow p-3  bg-secondary rounded">4</button>
+                        <button  onclick="ajouterChiffre(5)" class="text-white shadow p-3  bg-secondary rounded">5</button>
+                        <button onclick="ajouterChiffre(6)" class="text-white shadow p-3 bg-secondary rounded">6</button>
+                        <button onclick="ajouterCaractere('*')" class=" text-white  shadow p-3  bg-secondary rounded">x</button>
+                        <button onclick="ajouterCaractere('÷')" class=" text-white shadow p-3  bg-secondary rounded">/</button>
+                    </div>
+                    <div id="numberLign1" >
+                        <button onclick="ajouterChiffre(1)" class=" text-white shadow p-3  bg-secondary rounded">1</button>
+                        <button onclick="ajouterChiffre(2)" class="text-white shadow p-3  bg-secondary rounded">2</button>
+                        <button onclick="ajouterChiffre(3)" class=" text-white shadow p-3  bg-secondary rounded">3</button>
+                        <button onclick="ajouterCaractere('+')" class=" text-white  shadow p-3  bg-secondary  rounded">+</button>
+                        <button onclick="ajouterCaractere('-')" class=" text-white shadow p-3  bg-secondary rounded">-</button>
+                    </div>
+                    <div id="numberLign1" >
+                        <button onclick="ajouterChiffre(0)" class=" text-white shadow p-3  bg-secondary rounded">0</button>
+                        <button onclick="ajouterCaractere('.')" class="text-white shadow p-3  bg-secondary rounded">.</button>
+                        <button onclick="ajouterCaractere('x10')"class=" text-white shadow p-3  bg-secondary rounded">x10</button>
+                        <button onclick="utiliserAns()" class=" text-white  shadow p-3  bg-secondary rounded">Ans</button>
+                        <button onclick="calculerExpression()" class=" text-white shadow p-3  bg-secondary rounded">=</button>
+                    </div>
+                    <div ></div>
+
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+</html>
